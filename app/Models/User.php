@@ -10,6 +10,8 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+	// 1 user boleh memiliki berapa namatabel
+
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -41,4 +43,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+	public function posts()
+	{
+		return $this->hasMany(Post::class);  
+	}
 }
