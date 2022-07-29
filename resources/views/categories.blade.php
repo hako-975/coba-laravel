@@ -6,7 +6,7 @@
 		<div class="row">
 			@foreach ($categories as $category)
 				<div class="col-md-4 mb-3">
-					<a href="/categories/{{ $category->slug }}">
+					<a href="/posts?category={{ $category->slug }}">
 						<div class="card bg-dark text-white">
 							<img src="https://source.unsplash.com/500x500?{{ $category->name }}" class="card-img" alt="{{ $category->name }}">
 							<div class="p-0 card-img-overlay d-flex align-items-center">

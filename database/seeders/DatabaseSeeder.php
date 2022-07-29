@@ -62,7 +62,7 @@ class DatabaseSeeder extends Seeder
 			'slug' => 'unity-3d'
 		]);
 
-		Post::factory(25)->create();
+		Post::factory(2000)->create();
 
 		// Post::create([
 		// 	'title' => 'Judul Pertama',
