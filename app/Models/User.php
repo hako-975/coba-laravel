@@ -10,8 +10,6 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-	// 1 user boleh memiliki berapa namatabel
-
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -19,13 +17,15 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    // protected $fillable = [
+    //     'name',
+    //     'email',
+    //     'password',
+    // ];
 
-    /**
+	protected $guarded = ['id'];
+    
+	/**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
@@ -44,6 +44,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+	// 1 user boleh memiliki berapa namatabel
 	public function posts()
 	{
 		return $this->hasMany(Post::class);  
