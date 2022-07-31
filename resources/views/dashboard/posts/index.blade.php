@@ -5,9 +5,9 @@
 		<h1 class="h2">All Posts</h1>
 	</div>
 
-	@if (session()->has('add-post-success'))
-		<div class="alert alert-success alert-dismissible fade show" role="alert">
-			<strong>{{ session('add-post-success') }}</strong> New post has been added!
+	@if (session()->has('success'))
+		<div class="alert alert-success alert-dismissible fade show col-lg-8" role="alert">
+			<strong>Success!</strong> {{ session('success') }}
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
 	@endif
@@ -31,8 +31,12 @@
 						<td>{{ $post->category->name }}</td>
 						<td>
 							<a class="badge bg-info" href="/dashboard/posts/{{ $post->slug }}"><span data-feather="eye"></span></a>
-							<a class="badge bg-warning" href=""><span data-feather="edit"></span></a>
-							<a class="badge bg-danger" href=""><span data-feather="trash-2"></span></a>
+							<a class="badge bg-warning" href="/dashboard/posts/{{ $post->slug }}/edit"><span data-feather="edit"></span></a>
+							<form class="d-inline" action="/dashboard/posts/{{ $post->slug }}" method="POST">
+								@method('delete')
+								@csrf
+								<button class="border-0 badge bg-danger" onclick="return confirm('Are you sure to delete post with title: {{ $post->title }}?')"><span data-feather="trash-2"></span></button>
+							</form>
 						</td>
 					</tr>
 				@endforeach
