@@ -13,7 +13,6 @@
 			<article class="my-3 fs-5">
 				{!! $post->body !!}
 			</article>
-			<a class="text-decoration-none" href="/posts">Back to Posts</a>
 		</div>
 	</div>
 </div>

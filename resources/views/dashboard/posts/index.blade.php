@@ -5,6 +5,13 @@
 		<h1 class="h2">All Posts</h1>
 	</div>
 
+	@if (session()->has('add-post-success'))
+		<div class="alert alert-success alert-dismissible fade show" role="alert">
+			<strong>{{ session('add-post-success') }}</strong> New post has been added!
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+	@endif
+
 	<div class="table-responsive">
 		<a href="/dashboard/posts/create" class="btn btn-primary mb-3"><span data-feather="plus"></span> Add</a>
 		<table class="table table-striped table-sm">
