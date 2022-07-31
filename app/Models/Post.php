@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Post extends Model
 {
-	// 1 post ditulis berapa namatabel
-    use HasFactory;
+    use HasFactory, Sluggable;
 
 	// protected $fillable = [
 	// 	'title',
@@ -54,6 +54,7 @@ class Post extends Model
 		);
 	}
 
+	// 1 post ditulis berapa namatabel
 	public function category()
 	{
 		return $this->belongsTo(Category::class);
@@ -68,4 +69,13 @@ class Post extends Model
 	{
 		return 'slug';
 	}
+
+	public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
 }
