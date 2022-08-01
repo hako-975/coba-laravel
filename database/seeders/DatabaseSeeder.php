@@ -23,11 +23,12 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-		// User::create([
-		// 	'name' => 'Andri Firman Saputra',
-		// 	'email' => 'andrifirmansaputra1@gmail.com',
-		// 	'password' => bcrypt('12345')
-		// ]);
+		User::create([
+			'name' => 'Andri Firman Saputra',
+			'email' => 'andrifirmansaputra1@gmail.com',
+			'password' => bcrypt('12345'),
+			'username' => 'andri'
+		]);
 		
 		// User::create([
 		// 	'name' => 'Andre Farhan Saputra',
@@ -62,7 +63,7 @@ class DatabaseSeeder extends Seeder
 			'slug' => 'unity-3d'
 		]);
 
-		Post::factory(200)->create();
+		Post::factory(20)->create();
 
 		// Post::create([
 		// 	'title' => 'Judul Pertama',
