@@ -41,12 +41,27 @@
 	
 	{{-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script> --}}
 	
-	{{-- <script src="/js/dashboard.js"></script> --}}
+	<script src="/js/dashboard.js"></script>
 	
 	<script>
 		document.addEventListener('trix-file-accept', function(e) {
 			e.preventDefault();
 		});
+
+		function previewImage()
+		{
+			const image = document.querySelector('#image');
+			const imgPreview = document.querySelector('.img-preview');
+
+			imgPreview.style.display = 'block';
+
+			const oFReader = new FileReader();
+			oFReader.readAsDataURL(image.files[0]);
+
+			oFReader.onload = function(oFREvent) {
+				imgPreview.src = oFREvent.target.result;
+			}
+		}
 	</script>
   </body>
 </html>
